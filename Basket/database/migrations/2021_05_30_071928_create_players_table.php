@@ -22,7 +22,6 @@ class CreatePlayersTable extends Migration
             $table->integer('height');
             $table->integer('weight');
             $table->enum('gender', ['M', 'F']);
-            $table->year('draft');
             $table->year('birthyear');
             $table->text('origin');
             $table->timestamps();
