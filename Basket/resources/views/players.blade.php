@@ -15,8 +15,7 @@
             <th>Height</th>
             <th>Weight</th>
             <th>Gender</th>
-            <th>Draft</th>
-            <th>Birthyear</th>
+            <th>Age</th>
             <th>Origin</th>
         </thead>
         @foreach ($players as $player)
@@ -25,11 +24,10 @@
             <td> {{ $player->lastname }} </td>
             <td> {{ $player->position }} </td>
             <td> {{ $player->active == 0 ? 'no' : 'yes' }} </td>
-            <td> {{ $player->height }} </td>
-            <td> {{ $player->weight }} </td>
+            <td> {{ $player->height/100 . "m" . $player->height%100 }} </td>
+            <td> {{ $player->weight }} kg </td>
             <td> {{ $player->gender }} </td>
-            <td> {{ $player->draft }} </td>
-            <td> {{ $player->birthyear }} </td>
+            <td> {{ date_diff(date_create($player->birthdate), date_create('now'))->y }} </td>
             <td> {{ $player->origin }} </td>
         </tr>
         @endforeach
