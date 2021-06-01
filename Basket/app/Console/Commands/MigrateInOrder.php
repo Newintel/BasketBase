@@ -33,16 +33,17 @@ class MigrateInOrder extends Command
     public function handle()
     {
         $migrations = [
-            '2021_06_01_212808_create_members_table',
-            '2021_05_30_071928_create_players_table',
-            '2021_05_31_200659_create_coaches_table'
+            'database/migrations/2014_10_12_000000_create_users_table.php',
+            'database/migrations/2014_10_12_100000_create_password_resets_table.php',
+            'database/migrations/2019_08_19_000000_create_failed_jobs_table.php',
+            'database/migrations/2021_06_01_212808_create_members_table.php',
+            'database/migrations/2021_05_30_071928_create_players_table.php',
+            'database/migrations/2021_05_31_200659_create_coaches_table.php',
         ];
+        $this->call('db:wipe');
         foreach ($migrations as $migration){
-            $basepath = 'database/migrations';
-            $migration_name = trim($migration);
-            $path = $basepath.$migration_name.'.php';
-            $this->call('migrate:refresh', [
-                '--path'=>$path
+            $this->call('migrate', [
+                '--path'=>$migration
             ]);
         }
     }
