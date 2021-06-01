@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>@yield('page_title')</title>
-    <link rel="stylesheet" href="{{ asset('/css/mangas.css') }}">
     <link rel="stylesheet" href="{{ asset('/lib/bootstrap/bootstrap.min.css') }}">
 </head>
 <body>
@@ -30,6 +29,7 @@
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="{{ url('/players') }}">Players</a></li>
                         <li><a class="dropdown-item" href="{{ url('/coaches') }}">Coaches</a></li>
+                        <li><a class="dropdown-item" href="{{ url('/members') }}">Every listed members</a></li>
                     </ul>
                 </li>
             </ul>

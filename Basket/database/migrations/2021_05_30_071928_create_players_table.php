@@ -15,15 +15,17 @@ class CreatePlayersTable extends Migration
     {
         Schema::create('players', function (Blueprint $table) {
             $table->id();
-            $table->text('firstname');
-            $table->text('lastname');
+            $table->unsignedBigInteger('member_id');
+            $table->foreign('member_id')
+                ->references('id')
+                ->on('members')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->set('position', ['G', 'F', 'C']);
             $table->boolean('active');
             $table->integer('height');
             $table->integer('weight');
             $table->enum('gender', ['M', 'F']);
-            $table->date('birthdate');
-            $table->text('origin');
             $table->timestamps();
         });
     }
