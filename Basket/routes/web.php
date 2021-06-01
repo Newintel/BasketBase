@@ -21,3 +21,4 @@ Route::get('/', function () {
 
 Route::resource('players', PlayerController::class);
 Route::resource('coaches', CoachController::class);
+Route::resource('members', MemberController::class);
