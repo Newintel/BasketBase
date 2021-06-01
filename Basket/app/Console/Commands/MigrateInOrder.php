@@ -11,7 +11,7 @@ class MigrateInOrder extends Command
      *
      * @var string
      */
-    protected $signature = 'Migrate in order';
+    protected $signature = 'remigrate';
 
     /**
      * The console command description.
