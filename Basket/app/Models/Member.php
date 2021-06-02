@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Member extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['firstname', 'lastname', 'active', 'origin', 'image', 'hof', 'birthdate'];
+
+    public function player(){
+        return $this->hasOne(Player::class);
+    }
+
+    public function coach(){
+        return $this->hasOne(Coach::class);
+    }
 }

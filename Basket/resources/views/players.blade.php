@@ -19,15 +19,16 @@
     </thead>
     @foreach ($players as $player)
     <tr>
-        <td> {{ $player->firstname }} </td>
-        <td> {{ $player->lastname }} </td>
+        <td> {{ $player->member->firstname }} </td>
+        <td> {{ $player->member->lastname }} </td>
         <td> {{ $player->position }} </td>
-        <td> {{ $player->active == 0 ? 'no' : 'yes' }} </td>
+        <td> {{ $player->member->hof ? "yes" : "No"}} </td>
         <td> {{ (int)($player->height/100) . "m" . $player->height%100 }} </td>
         <td> {{ $player->weight }} kg </td>
         <td> {{ $player->gender }} </td>
-        <td> {{ date_diff(date_create($player->birthdate), date_create('now'))->y }} </td>
-        <td> {{ $player->origin }} </td>
+        <td> {{ age($player->member->birthdate) }} </td>
+        <td> {{ $player->member->origin }} </td>
+        <td>{{ $player->member->hof ? "yes" : "No" }}</td>
     </tr>
     @endforeach
 </table>

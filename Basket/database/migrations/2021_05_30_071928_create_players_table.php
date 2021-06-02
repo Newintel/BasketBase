@@ -22,11 +22,10 @@ class CreatePlayersTable extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->set('position', ['G', 'F', 'C']);
-            $table->boolean('active');
             $table->integer('height');
             $table->integer('weight');
             $table->enum('gender', ['M', 'F']);
-            $table->timestamps();
+            $table->unique('member_id');
         });
     }
 

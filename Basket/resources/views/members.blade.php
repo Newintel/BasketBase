@@ -15,7 +15,7 @@
     <tr>
         <td> {{ $member->firstname }} </td>
         <td> {{ $member->lastname }} </td>
-        <td> {{ date_diff(date_create($coach->birthdate), date_create('now'))->y }} </td>
+        <td> {{ date_diff(date_create($member->birthdate), date_create('now'))->y }} </td>
     </tr>
     @endforeach
 </table>

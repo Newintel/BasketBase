@@ -21,7 +21,7 @@ class CreateCoachesTable extends Migration
                 ->on('members')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->timestamps();
+            $table->unique('member_id');
         });
     }
 

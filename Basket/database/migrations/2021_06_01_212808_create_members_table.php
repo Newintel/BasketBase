@@ -19,8 +19,9 @@ class CreateMembersTable extends Migration
             $table->text('lastname');
             $table->date('birthdate');
             $table->text('origin');
+            $table->boolean('active')->default(false);
             $table->text('image')->default(asset('images/null.png'));
-            $table->timestamps();
+            $table->boolean('hof')->default(false);
         });
     }
 
