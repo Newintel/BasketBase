@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Win extends Migration
+class CreateTeamLeagueTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class Win extends Migration
      */
     public function up()
     {
-        Schema::create('wins', function (Blueprint $table) {
+        Schema::create('team_league', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('league');
             $table->foreign('league')
@@ -27,8 +27,7 @@ class Win extends Migration
                 ->on('teams')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->year('season');
-            $table->unique(['league', 'season']);
+            $table->unique(['league', 'team']);
         });
     }
 
@@ -39,6 +38,6 @@ class Win extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('wins');
+        Schema::dropIfExists('team_league');
     }
 }

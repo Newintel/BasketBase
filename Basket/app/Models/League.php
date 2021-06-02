@@ -12,10 +12,10 @@ class League extends Model
     protected $fillable = ["name"];
 
     public function teams(){
-        return $this->belongsToMany(Team::class);
+        return $this->belongsToMany(Team::class, 'team_league', 'team', 'league');
     }
 
     public function winners(){
-        return $this->hasMany(Team::class, 'wins');
+        return $this->hasMany(Team::class, 'wins', 'team', 'league');
     }
 }

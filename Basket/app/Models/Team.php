@@ -10,7 +10,7 @@ class Team extends Model
     use HasFactory;
 
     public function leagues(){
-        return $this->belongsToMany(League::class);
+        return $this->belongsToMany(League::class, 'team_league', 'league', 'team');
     }
 
     public function players(){
