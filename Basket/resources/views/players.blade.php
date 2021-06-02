@@ -26,7 +26,7 @@
         <td> {{ (int)($player->height/100) . "m" . $player->height%100 }} </td>
         <td> {{ $player->weight }} kg </td>
         <td> {{ $player->gender }} </td>
-        <td> {{ age($player->member->birthdate) }} </td>
+        <td> {{ date_diff(date_create($player->member->birthdate), date_create('now'))->y }} </td>
         <td> {{ $player->member->origin }} </td>
         <td>{{ $player->member->hof ? "yes" : "No" }}</td>
     </tr>

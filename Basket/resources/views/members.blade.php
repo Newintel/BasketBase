@@ -4,18 +4,22 @@
     Members list
 @endsection
 
+@section('style')
+    <?php $style = ['members'] ?>
+@endsection
+
 @section('content')
 <table class="table table-success table-striped">
     <thead>
+        <th></th>
         <th>First Name</th>
         <th>Last Name</th>
-        <th>Age</th>
     </thead>
     @foreach ($members as $member)
     <tr>
+        <td><img class="pp" src="{{ asset('images/'.$member->image) }}"></td>
         <td> {{ $member->firstname }} </td>
         <td> {{ $member->lastname }} </td>
-        <td> {{ date_diff(date_create($member->birthdate), date_create('now'))->y }} </td>
     </tr>
     @endforeach
 </table>

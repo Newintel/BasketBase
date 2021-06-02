@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <title>@yield('page_title')</title>
     <link rel="stylesheet" href="{{ asset('/lib/bootstrap/bootstrap.min.css') }}">
+    @yield('style')
+    @php
+        $style ??= [];
+        array_push($style, "main");
+    @endphp
+    @foreach ($style as $css)
+        <link rel="stylesheet" href="{{ asset('css/'.trim($css).'.css') }}">
+    @endforeach
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">

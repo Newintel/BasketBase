@@ -20,7 +20,7 @@ class CreateMembersTable extends Migration
             $table->date('birthdate');
             $table->text('origin');
             $table->boolean('active')->default(false);
-            $table->text('image')->default(asset('images/null.png'));
+            $table->text('image')->default('null.png');
             $table->boolean('hof')->default(false);
         });
     }

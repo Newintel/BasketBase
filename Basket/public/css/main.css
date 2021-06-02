@@ -1,0 +1,14 @@
+*{
+    padding: 0;
+    margin : 0;
+}
+
+#content{
+    width: 150vh;
+    margin: auto;
+    margin-top: 10vh;
+}
+
+#content table td:not(:first-child), #content table th:not(:first-child){
+    text-align: center;
+}
