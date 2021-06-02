@@ -14,4 +14,8 @@ class Player extends Model
     public function member(){
         return $this->belongsTo(Member::class);
     }
+
+    public function teams(){
+        return $this->belongsToMany(Team::class);
+    }
 }

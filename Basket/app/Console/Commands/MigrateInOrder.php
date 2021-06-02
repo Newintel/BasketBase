@@ -11,7 +11,7 @@ class MigrateInOrder extends Command
      *
      * @var string
      */
-    protected $signature = 'remigrate';
+    protected $signature = 'reload';
 
     /**
      * The console command description.
@@ -41,6 +41,7 @@ class MigrateInOrder extends Command
             'database/migrations/2021_05_31_200659_create_coaches_table.php',
             'database/migrations/2021_06_02_133820_create_leagues_table.php',
             'database/migrations/2021_06_02_134524_create_awards_table.php',
+            'database/migrations/2021_06_02_135519_create_teams_table.php',
         ];
         $this->call('db:wipe');
         foreach ($migrations as $migration){
