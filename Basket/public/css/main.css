@@ -4,9 +4,13 @@
 }
 
 #content{
-    /* width: 150vh; */
+    width: 100%;
     margin: auto;
     margin-top: 10vh;
+}
+
+#content table{
+    width: 100%;
 }
 
 #content table td:not(:first-child), #content table th:not(:first-child){
