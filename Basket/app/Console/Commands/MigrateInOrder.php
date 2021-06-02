@@ -42,6 +42,7 @@ class MigrateInOrder extends Command
             'database/migrations/2021_06_02_133820_create_leagues_table.php',
             'database/migrations/2021_06_02_134524_create_awards_table.php',
             'database/migrations/2021_06_02_135519_create_teams_table.php',
+            'database/migrations/2021_06_02_192323_win.php',
         ];
         $this->call('db:wipe');
         foreach ($migrations as $migration){

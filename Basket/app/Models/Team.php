@@ -9,8 +9,8 @@ class Team extends Model
 {
     use HasFactory;
 
-    public function league(){
-        return $this->belongsTo(League::class);
+    public function leagues(){
+        return $this->belongsToMany(League::class);
     }
 
     public function players(){
@@ -19,5 +19,9 @@ class Team extends Model
 
     public function coaches(){
         return $this->belongsToMany(Coach::class);
+    }
+
+    public function wins(){
+        return $this->belongsToMany(League::class, 'wins', 'league', 'team');
     }
 }
