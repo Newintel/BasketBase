@@ -16,6 +16,7 @@
         <th>Gender</th>
         <th>Age</th>
         <th>Origin</th>
+        <th>Hall of Fame</th>
     </thead>
     @foreach ($players as $player)
     <tr>

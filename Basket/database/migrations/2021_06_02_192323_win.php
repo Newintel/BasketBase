@@ -16,18 +16,13 @@ class Win extends Migration
         Schema::create('wins', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('league');
-            $table->foreign('league')
-                ->references('id')
-                ->on('leagues')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
             $table->unsignedBigInteger('team');
-            $table->foreign('team')
-                ->references('id')
-                ->on('teams')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
             $table->year('season');
+            $table->foreign(['league', 'team'])
+                ->references(['league', 'team'])
+                ->on('team_league')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->unique(['league', 'season']);
         });
     }

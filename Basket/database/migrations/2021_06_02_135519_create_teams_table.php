@@ -19,12 +19,6 @@ class CreateTeamsTable extends Migration
             $table->text('shortname');
             $table->text('city');
             $table->text('country');
-            $table->unsignedBigInteger('league');
-            $table->foreign('league')
-                ->references('id')
-                ->on('leagues')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
         });
     }
 
