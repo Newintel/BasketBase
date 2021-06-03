@@ -29,7 +29,7 @@ class CreatePlaysInTable extends Migration
                 ->onUpdate('cascade');
             $table->year('from_season');
             $table->year('to_season');
-            $table->set('transfer', ['start', 'end']);
+            $table->set('transfer', ['start', 'end'])->default('');
         });
     }
 
