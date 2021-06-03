@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCoachesTable extends Migration
+class CreateCoachesInTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,20 @@ class CreateCoachesTable extends Migration
      */
     public function up()
     {
-        Schema::create('coaches', function (Blueprint $table) {
+        Schema::create('coaches_in', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('member_id');
-            $table->foreign('member_id')
+            $table->unsignedBigInteger('team');
+            $table->foreign('team')
                 ->references('id')
-                ->on('members')
+                ->on('teams')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->unique('member_id');
-            $table->year('retired');
+            $table->unsignedBigInteger('coach');
+            $table->foreign('coach')
+                ->references('id')
+                ->on('coaches')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 
@@ -33,6 +37,6 @@ class CreateCoachesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('coaches');
+        Schema::dropIfExists('coaches_in');
     }
 }

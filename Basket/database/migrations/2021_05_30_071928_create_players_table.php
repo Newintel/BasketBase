@@ -26,6 +26,7 @@ class CreatePlayersTable extends Migration
             $table->integer('weight');
             $table->enum('gender', ['M', 'F']);
             $table->unique('member_id');
+            $table->year('retired');
         });
     }
 

@@ -7,13 +7,13 @@ insert into members (firstname, lastname, birthdate, origin, hof, dead, active) 
 ('Phil', 'Jackson', '1945-9-17', 'USA', true, false, false);
 
 -- players
-insert into players (member_id, position, height, weight, gender) values
-(1, 6, 213, 111, 1),
-(2, 3, 198, 96, 1),
-(3, 2, 203, 100, 1);
+insert into players (member_id, position, height, weight, gender, retired) values
+(1, 6, 213, 111, 1, 2019),
+(2, 3, 198, 96, 1, 2016),
+(3, 2, 203, 100, 1, 1980);
 
 -- coaches
-insert into coaches (member_id) values (3);
+insert into coaches (member_id, retired) values (3, 2011);
 
 -- awards
 insert into awards (name, fullname) values
@@ -96,7 +96,7 @@ insert into league_teams (league, team) values
 
 -- wins
 insert into wins (league, team, season) values
-(1, 1, 2011),
-(1, 2, 2020),
-(1, 2, 2010);
+(1, 1, 2012),
+(1, 8, 2020),
+(1, 8, 2010);
 
