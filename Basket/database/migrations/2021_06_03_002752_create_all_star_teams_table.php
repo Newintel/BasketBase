@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Team;
 
 class CreateAllStarTeamsTable extends Migration
 {
@@ -21,21 +22,14 @@ class CreateAllStarTeamsTable extends Migration
                 ->on('teams')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->unsignedBigInteger('league');
-            $table->foreign('league')
-                ->references('id')
-                ->on('leagues')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
             $table->boolean('active')->default(false);
-            $table->unsignedBigInteger('captain');
+            $table->unsignedBigInteger('captain')->nullable();
             $table->foreign('captain')
                 ->references('id')
                 ->on('players')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->year('season');
-            $table->unique(['team', 'league']);
         });
     }
 

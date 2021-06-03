@@ -114,3 +114,5 @@ insert into coaches_in (coach, team, from_season, to_season) values
 (1, 21, 1987, 1997),
 (1, 8, 1999, 2003),
 (1, 8, 2005, 2010);
+
+-- wins_award

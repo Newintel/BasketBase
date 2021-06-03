@@ -17,10 +17,6 @@ class Team extends Model
         return $this->belongsToMany(Coach::class);
     }
 
-    public function league_team(){
-        return $this->hasOne(LeagueTeam::class);
-    }
-
     public function all_star_team(){
         return $this->hasOne(AllStarTeam::class);
     }
