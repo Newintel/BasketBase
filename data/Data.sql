@@ -100,3 +100,17 @@ insert into wins (league, team, season) values
 (1, 8, 2020),
 (1, 8, 2010);
 
+
+-- plays in
+insert into plays_in (player, team, from_season, to_season) values
+(1, 1, 1998, 2018),
+(2, 8, 1996, 2015),
+(3, 28, 1967, 1977),
+(3, 27, 1978, 1979);
+
+-- coaches in
+insert into coaches_in (coach, team, from_season, to_season) values
+(3, 27, 1978, 1980),
+(3, 21, 1987, 1997),
+(3, 8, 1999, 2003),
+(3, 8, 2005, 2010);
