@@ -22,7 +22,6 @@ class CreateAllStarTeamsTable extends Migration
                 ->on('teams')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->boolean('active')->default(false);
             $table->unsignedBigInteger('captain')->nullable();
             $table->foreign('captain')
                 ->references('id')
@@ -30,6 +29,8 @@ class CreateAllStarTeamsTable extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->year('season');
+            $table->string('name')->nullable();
+            $table->string('shortname')->nullable();
         });
     }
 

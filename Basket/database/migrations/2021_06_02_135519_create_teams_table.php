@@ -17,11 +17,11 @@ class CreateTeamsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('shortname');
-            $table->string('city');
-            $table->string('country');
-            $table->unique(['name', 'city']);
+            $table->string('city')->default('');
+            $table->string('country')->nullable();
             $table->boolean('active')->default(false);
             $table->boolean('all_star')->default(false);
+            $table->unique(['name', 'city']);
         });
     }
 

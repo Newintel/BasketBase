@@ -38,7 +38,7 @@ insert into teams (name, shortname, city, country) values
 ('Warriors', 'GSW', 'Golden State', 'USA'),
 ('Clippers', 'LAC', 'Los Angeles', 'USA'),
 ('Lakers', 'LAL', 'Los Angeles', 'USA'),
-('Suns', 'PHO', 'Phoenix', 'USA'),
+('Suns', 'PHX', 'Phoenix', 'USA'),
 ('Kings', 'SAC', 'Sacramento', 'USA'),
 ('Nuggets', 'DEN', 'Denver', 'USA'),
 ('Timberwolves', 'MIN', 'Minnesota', 'USA'),
@@ -61,8 +61,8 @@ insert into teams (name, shortname, city, country) values
 ('76ers', 'PHI', 'Philadelphia', 'USA'),
 ('Raptors', 'TOR', 'Toronto', 'USA');
 
--- team_league
-insert into league_teams (league, team) values
+-- league team
+insert into league_team (league, team) values
 (1, 1),
 (1, 2),
 (1, 3),
@@ -116,3 +116,7 @@ insert into coaches_in (coach, team, from_season, to_season) values
 (1, 8, 2005, 2010);
 
 -- wins_award
+insert into wins_award (member, league, award, season) values
+(1, 1, 1, 2007),
+(2, 1, 1, 2008),
+(3, 1, 6, 1996);

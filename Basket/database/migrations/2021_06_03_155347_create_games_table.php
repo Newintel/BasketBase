@@ -30,6 +30,12 @@ class CreateGamesTable extends Migration
             $table->integer('home_score');
             $table->integer('away_score');
             $table->boolean('cancelled')->default(false);
+            $table->unsignedBigInteger('pog');
+            $table->foreign('pog')
+                ->references('id')
+                ->on('players')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
 
         DB::statement('ALTER TABLE games ADD CONSTRAINT different_teams CHECK (home != away)');

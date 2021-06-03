@@ -12,4 +12,8 @@ class AllStarTeam extends Model
     public function team(){
         return $this->belongsTo(Team::class);
     }
+
+    public function captain(){
+        return $this->belongsTo(Player::class);
+    }
 }

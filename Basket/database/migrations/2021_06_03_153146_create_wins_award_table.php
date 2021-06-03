@@ -15,10 +15,10 @@ class CreateWinsAwardTable extends Migration
     {
         Schema::create('wins_award', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('player');
-            $table->foreign('player')
+            $table->unsignedBigInteger('member');
+            $table->foreign('member')
                 ->references('id')
-                ->on('players')
+                ->on('members')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->unsignedBigInteger('league');
