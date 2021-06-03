@@ -24,11 +24,11 @@
         <td> {{ $player->member->firstname }} </td>
         <td> {{ $player->member->lastname }} </td>
         <td> {{ $player->position }} </td>
-        <td> {{ $player->member->hof ? "Yes" : "No"}} </td>
+        <td> {{ $player->member->active ? "Yes" : "No"}} </td>
         <td> {{ (int)($player->height/100) . "m" . $player->height%100 }} </td>
         <td> {{ $player->weight }} kg </td>
         <td> {{ $player->gender }} </td>
-        <td> {{ $player->member->dead ? date_diff(date_create($player->member->birthdate), date_create('now'))->y : "Dead"}} </td>
+        <td> {{ !$player->member->dead ? date_diff(date_create($player->member->birthdate), date_create('now'))->y : "Dead"}} </td>
         <td> {{ $player->member->origin }} </td>
         <td>{{ $player->member->hof ? "Yes" : "No" }}</td>
     </tr>

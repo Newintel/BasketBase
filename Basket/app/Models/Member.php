@@ -9,8 +9,6 @@ class Member extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['firstname', 'lastname', 'active', 'origin', 'image', 'hof', 'birthdate'];
-
     public function player(){
         return $this->hasOne(Player::class);
     }

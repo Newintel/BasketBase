@@ -16,7 +16,7 @@
     <tr>
         <td> {{ $coach->member->firstname }} </td>
         <td> {{ $coach->member->lastname }} </td>
-        <td> {{ $coach->member->dead ? date_diff(date_create($coach->member->birthdate), date_create('now'))->y : "Dead" }} </td>
+        <td> {{ !$coach->member->dead ? date_diff(date_create($coach->member->birthdate), date_create('now'))->y : "Dead" }} </td>
     </tr>
     @endforeach
 </table>

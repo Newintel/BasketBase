@@ -9,8 +9,6 @@ class Player extends Model
 {
     use HasFactory;
 
-    public $timestamps = false;
-
     public function member(){
         return $this->belongsTo(Member::class);
     }
@@ -25,5 +23,13 @@ class Player extends Model
 
     public function is_captain(){
         return $this->hasMany(AllStarTeam::class);
+    }
+
+    public function games_at_home(){
+        return $this->belongsToMany(Game::class, 'games', 'home', 'id');
+    }
+
+    public function games_away(){
+        return $this->belongsToMany(Game::class, 'games', 'away', 'id');
     }
 }

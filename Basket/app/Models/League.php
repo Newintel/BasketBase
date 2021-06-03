@@ -9,8 +9,6 @@ class League extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["name"];
-
     public function teams(){
         return $this->belongsToMany(Team::class, 'league_team', 'league', 'team');
     }
