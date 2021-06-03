@@ -19,8 +19,8 @@ class Win extends Migration
             $table->unsignedBigInteger('team');
             $table->year('season');
             $table->foreign(['team', 'league'])
-                ->references(['team', 'league'])
-                ->on('league_teams')
+                ->references(['id', 'league'])
+                ->on('teams')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->unique(['league', 'season']);
