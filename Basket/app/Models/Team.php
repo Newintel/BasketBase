@@ -20,4 +20,12 @@ class Team extends Model
     public function all_star_team(){
         return $this->hasOne(AllStarTeam::class);
     }
+
+    public function leagues(){
+        return $this->belongsToMany(League::class, 'league_team', 'team', 'league');
+    }
+
+    public function wins(){
+        return $this->belongsToMany(League::class, 'wins', 'team', 'league');
+    }
 }

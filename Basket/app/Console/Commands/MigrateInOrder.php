@@ -43,6 +43,7 @@ class MigrateInOrder extends Command
             'database/migrations/2021_06_02_134524_create_awards_table.php',
             'database/migrations/2021_06_02_135519_create_teams_table.php',
             'database/migrations/2021_06_03_002752_create_all_star_teams_table.php',
+            'database/migrations/2021_06_03_200123_create_league_team_table.php',
             'database/migrations/2021_06_02_192323_win.php',
             'database/migrations/2021_06_03_120335_create_plays_in_table.php',
             'database/migrations/2021_06_03_121219_create_coaches_in_table.php',

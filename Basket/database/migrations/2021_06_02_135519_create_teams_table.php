@@ -20,13 +20,6 @@ class CreateTeamsTable extends Migration
             $table->string('city');
             $table->string('country');
             $table->unique(['name', 'city']);
-            $table->unsignedBigInteger('league');
-            $table->foreign('league')
-                ->references('id')
-                ->on('leagues')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-            $table->unique(['name', 'league']);
             $table->boolean('active')->default(false);
             $table->boolean('all_star')->default(false);
         });

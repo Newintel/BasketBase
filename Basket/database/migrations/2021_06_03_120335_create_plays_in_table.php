@@ -14,7 +14,6 @@ class CreatePlaysInTable extends Migration
     public function up()
     {
         Schema::create('plays_in', function (Blueprint $table) {
-            $table->id();
             $table->unsignedBigInteger('team');
             $table->foreign('team')
                 ->references('id')
@@ -30,6 +29,7 @@ class CreatePlaysInTable extends Migration
             $table->year('from_season');
             $table->year('to_season');
             $table->set('transfer', ['start', 'end'])->default('');
+            $table->unique(['team', 'player']);
         });
         DB::statement('ALTER TABLE plays_in ADD CONSTRAINT players_years CHECK (from_season <= to_season)');
     }

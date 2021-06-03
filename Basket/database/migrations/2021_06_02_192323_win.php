@@ -14,16 +14,14 @@ class Win extends Migration
     public function up()
     {
         Schema::create('wins', function (Blueprint $table) {
-            $table->id();
             $table->unsignedBigInteger('league');
             $table->unsignedBigInteger('team');
             $table->year('season');
             $table->foreign(['team', 'league'])
-                ->references(['id', 'league'])
-                ->on('teams')
+                ->references(['team', 'league'])
+                ->on('league_team')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->unique(['league', 'season']);
         });
     }
 

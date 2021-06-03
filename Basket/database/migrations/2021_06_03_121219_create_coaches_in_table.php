@@ -14,7 +14,6 @@ class CreateCoachesInTable extends Migration
     public function up()
     {
         Schema::create('coaches_in', function (Blueprint $table) {
-            $table->id();
             $table->unsignedBigInteger('team');
             $table->foreign('team')
                 ->references('id')
@@ -29,6 +28,7 @@ class CreateCoachesInTable extends Migration
                 ->onUpdate('cascade');
             $table->year('from_season');
             $table->year('to_season');
+            $table->unique(['team', 'coach']);
         });
         DB::statement('ALTER TABLE coaches_in ADD CONSTRAINT coaches_years CHECK (from_season <= to_season)');
     }
