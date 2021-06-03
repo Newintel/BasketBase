@@ -15,13 +15,15 @@ class CreateMembersTable extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->id();
-            $table->text('firstname');
-            $table->text('lastname');
+            $table->string('firstname');
+            $table->string('lastname');
             $table->date('birthdate');
-            $table->text('origin');
+            $table->string('origin');
             $table->boolean('active')->default(false);
-            $table->text('image')->default('null.png');
+            $table->string('image')->default('null.png');
             $table->boolean('hof')->default(false);
+            $table->boolean('dead')->default(false);
+            $table->unique(['firstname', 'lastname', 'birthdate']);
         });
     }
 

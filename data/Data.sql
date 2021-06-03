@@ -1,10 +1,10 @@
 use Basket;
 
 -- members
-insert into members (firstname, lastname, birthdate, origin, hof) values
-('Dirk', 'Nowitzki', '1978-6-19', 'Germany', false),
-( 'Kobe', 'Bryant', '1978-8-23', 'USA', true),
-('Phil', 'Jackson', '1945-9-17', 'USA', true);
+insert into members (firstname, lastname, birthdate, origin, hof, dead, active) values
+('Dirk', 'Nowitzki', '1978-6-19', 'Germany', false, false, false),
+( 'Kobe', 'Bryant', '1978-8-23', 'USA', true, true, false),
+('Phil', 'Jackson', '1945-9-17', 'USA', true, false, false);
 
 -- players
 insert into players (member_id, position, height, weight, gender) values
@@ -21,7 +21,8 @@ insert into awards (name, fullname) values
 ('DPOY', 'Defensive Player of the Year'),
 ('6MOY', 'Sixth Man of the Year'),
 ('ROY', 'Rookie of the Year'),
-('MIP', 'Most Improved Player');
+('MIP', 'Most Improved Player'),
+('COY', 'Coach of the Year');
 
 -- leagues
 insert into leagues (name, shortname, region) values
@@ -39,5 +40,7 @@ insert into team_league (league, team) values
 
 -- wins
 insert into wins (league, team, season) values
-(1, 1, 2011);
+(1, 1, 2011),
+(1, 2, 2020),
+(1, 2, 2010);
 

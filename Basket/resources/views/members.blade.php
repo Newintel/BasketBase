@@ -9,7 +9,8 @@
 @endsection
 
 @section('content')
-<table class="table table-success table-striped">
+<table class="table table-success table-striped table-hover">
+    <caption class="caption-top"><h2>Every Listed Member</h2></caption>
     <thead>
         <th></th>
         <th>First Name</th>
