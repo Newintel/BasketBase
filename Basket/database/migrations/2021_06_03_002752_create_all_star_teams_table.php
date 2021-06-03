@@ -36,7 +36,6 @@ class CreateAllStarTeamsTable extends Migration
                 ->onUpdate('cascade');
             $table->year('season');
             $table->unique(['team', 'league']);
-            $table->unique(['captain', 'season']);
         });
     }
 

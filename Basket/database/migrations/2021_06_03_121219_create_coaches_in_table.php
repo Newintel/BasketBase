@@ -30,6 +30,7 @@ class CreateCoachesInTable extends Migration
             $table->year('from_season');
             $table->year('to_season');
         });
+        DB::statement('ALTER TABLE coaches_in ADD CONSTRAINT coaches_years CHECK (from_season <= to_season)');
     }
 
     /**
