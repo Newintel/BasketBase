@@ -18,4 +18,8 @@ class Player extends Model
     public function teams(){
         return $this->belongsToMany(Team::class);
     }
+
+    public function awards(){
+        return $this->belongsToMany(Awards::class);
+    }
 }

@@ -20,6 +20,7 @@ class CreateTeamsTable extends Migration
             $table->string('city');
             $table->string('country');
             $table->unique(['name', 'city']);
+            $table->boolean('active')->default(false);
         });
     }
 
