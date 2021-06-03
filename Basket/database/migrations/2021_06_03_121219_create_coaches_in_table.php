@@ -27,6 +27,8 @@ class CreateCoachesInTable extends Migration
                 ->on('coaches')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
+            $table->year('from_season');
+            $table->year('to_season');
         });
     }
 
