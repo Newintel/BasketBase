@@ -14,7 +14,7 @@ class Player extends Model
     }
 
     public function teams(){
-        return $this->belongsToMany(Team::class);
+        return $this->belongsToMany(Team::class, 'plays_in', 'player', 'team');
     }
 
     public function awards(){

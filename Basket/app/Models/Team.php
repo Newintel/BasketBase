@@ -10,11 +10,11 @@ class Team extends Model
     use HasFactory;
 
     public function players(){
-        return $this->belongsToMany(Player::class);
+        return $this->belongsToMany(Player::class, 'plays_in', 'team', 'player');
     }
 
     public function coaches(){
-        return $this->belongsToMany(Coach::class);
+        return $this->belongsToMany(Coach::class, 'coaches_in', 'team', 'coach');
     }
 
     public function all_star_team(){

@@ -47,7 +47,8 @@ class PlayerController extends Controller
      */
     public function show(Player $player)
     {
-        //
+        $teams = $player->teams;
+        return view('player', compact('player', 'teams'));
     }
 
     /**
