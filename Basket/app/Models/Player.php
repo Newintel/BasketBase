@@ -17,10 +17,6 @@ class Player extends Model
         return $this->belongsToMany(Team::class, 'plays_in', 'player', 'team');
     }
 
-    public function awards(){
-        return $this->belongsToMany(Awards::class);
-    }
-
     public function is_captain(){
         return $this->hasMany(AllStarTeam::class);
     }

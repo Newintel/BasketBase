@@ -16,4 +16,8 @@ class Member extends Model
     public function coach(){
         return $this->hasOne(Coach::class);
     }
+
+    public function awards(){
+        return $this->belongsToMany(Award::class, 'wins_award', 'member', 'award');
+    }
 }
