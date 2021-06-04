@@ -49,7 +49,7 @@ class MemberController extends Controller
     {
         $player = $member->player;
         $coach = $member->coach;
-        return view('member', compact('member', 'player', 'coach'));
+        return view('show.member', compact('member', 'player', 'coach'));
     }
 
     /**

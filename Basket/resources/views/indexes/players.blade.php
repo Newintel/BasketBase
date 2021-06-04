@@ -18,10 +18,9 @@
         <th>Age</th>
         <th>Origin</th>
         <th>Hall of Fame</th>
-        <th></th>
     </thead>
     @foreach ($players as $player)
-    <tr class="pointer" onclick="javascript:window.open('{{ route('members.show', $member->id) }}', '_self')">
+    <tr class="pointer" onclick="javascript:window.open('{{ route('players.show', $player->id) }}', '_self')">
         <td> {{ $player->member->firstname }} </td>
         <td> {{ $player->member->lastname }} </td>
         <td> {{ $player->position }} </td>

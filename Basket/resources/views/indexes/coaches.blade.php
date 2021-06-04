@@ -13,7 +13,7 @@
         <th>Age</th>
     </thead>
     @foreach ($coaches as $coach)
-    <tr>
+    <tr class="pointer"  onclick="javascript:window.open('{{ route('coaches.show', $coach->id) }}', '_self')">
         <td> {{ $coach->member->firstname }} </td>
         <td> {{ $coach->member->lastname }} </td>
         <td> {{ !$coach->member->dead ? date_diff(date_create($coach->member->birthdate), date_create('now'))->y : "Dead" }} </td>

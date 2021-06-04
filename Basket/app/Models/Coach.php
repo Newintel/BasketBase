@@ -14,6 +14,6 @@ class Coach extends Model
     }
 
     public function teams(){
-        return $this->belongsToMany(Team::class);
+        return $this->belongsToMany(Team::class, 'coaches_in', 'coach', 'team')->withPivot('from_season', 'to_season');
     }
 }

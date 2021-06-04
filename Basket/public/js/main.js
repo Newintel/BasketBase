@@ -1,0 +1,1 @@
+document.querySelector('nav.navbar').style.display = window.location !== window.parent.location && "none";

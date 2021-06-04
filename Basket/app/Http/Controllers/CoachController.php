@@ -47,7 +47,8 @@ class CoachController extends Controller
      */
     public function show(Coach $coach)
     {
-        //
+        $teams = $coach->teams;
+        return view('show.coach', compact('coach', 'teams'));
     }
 
     /**
