@@ -18,6 +18,6 @@ class Member extends Model
     }
 
     public function awards(){
-        return $this->belongsToMany(Award::class, 'wins_award', 'member', 'award');
+        return $this->belongsToMany(Award::class, 'wins_award', 'member', 'award')->withPivot('season');
     }
 }

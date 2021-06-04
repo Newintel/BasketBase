@@ -14,7 +14,6 @@ class CreateWinsAwardTable extends Migration
     public function up()
     {
         Schema::create('wins_award', function (Blueprint $table) {
-            $table->id();
             $table->unsignedBigInteger('member');
             $table->foreign('member')
                 ->references('id')
