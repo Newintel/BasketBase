@@ -49,7 +49,8 @@ class CoachController extends Controller
     {
         $teams = $coach->teams;
         $awards = $coach->member->awards->groupBy('id')->sortBy('id');
-        return view('show.coach', compact('coach', 'teams', 'awards'));
+        $wins = $coach->wins();
+        return view('show.coach', compact('coach', 'teams', 'awards', 'wins'));
     }
 
     /**

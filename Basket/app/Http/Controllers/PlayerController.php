@@ -49,7 +49,8 @@ class PlayerController extends Controller
     {
         $teams = $player->teams;
         $awards = $player->member->awards;
-        return view('show.player', compact('player', 'teams', 'awards'));
+        $wins = $player->wins();
+        return view('show.player', compact('player', 'teams', 'awards', 'wins'));
     }
 
     /**

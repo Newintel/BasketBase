@@ -16,7 +16,7 @@ class CreateTeamsTable extends Migration
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('shortname');
+            $table->string('shortname')->default('');
             $table->string('city')->default('');
             $table->string('country')->nullable();
             $table->boolean('active')->default(false);

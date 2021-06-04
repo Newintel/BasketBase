@@ -6,4 +6,5 @@
         <li>{{ $award->name }}</li>
     @endforeach
 </ul>
+<p>{{ $wins }}</p>
 @endsection
