@@ -16,3 +16,7 @@
 #content table td:not(:first-child), #content table th:not(:first-child){
     text-align: center;
 }
+
+.pointer{
+    cursor: pointer;
+}

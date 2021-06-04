@@ -15,7 +15,7 @@ class PlayerController extends Controller
     public function index()
     {
         $players = Player::all();
-        return view('players', compact('players'));
+        return view('indexes.players', compact('players'));
     }
 
     /**
@@ -49,7 +49,7 @@ class PlayerController extends Controller
     {
         $teams = $player->teams;
         $awards = $player->member->awards;
-        return view('indexes.player', compact('player', 'teams', 'awards'));
+        return view('show.player', compact('player', 'teams', 'awards'));
     }
 
     /**

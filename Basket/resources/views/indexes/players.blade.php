@@ -21,7 +21,7 @@
         <th></th>
     </thead>
     @foreach ($players as $player)
-    <tr>
+    <tr class="pointer" onclick="javascript:window.open('{{ route('members.show', $member->id) }}', '_self')">
         <td> {{ $player->member->firstname }} </td>
         <td> {{ $player->member->lastname }} </td>
         <td> {{ $player->position }} </td>
@@ -32,7 +32,6 @@
         <td> {{ !$player->member->dead ? date_diff(date_create($player->member->birthdate), date_create('now'))->y : "Dead"}} </td>
         <td> {{ $player->member->origin }} </td>
         <td>{{ $player->member->hof ? "Yes" : "No" }}</td>
-        <td><a class='btn btn-primary' href={{ route('players.show', $player->id) }}>Show</a></td>
     </tr>
     @endforeach
 </table>

@@ -17,7 +17,7 @@
         <th>Last Name</th>
     </thead>
     @foreach ($members as $member)
-    <tr class="member" onclick="javascript:window.open('{{ route('members.show', $member->id) }}', '_self')">
+    <tr class="pointer" onclick="javascript:window.open('{{ route('members.show', $member->id) }}', '_self')">
         <td><img class="pp" src="{{ asset('images/'.$member->image) }}"></td>
         <td> {{ $member->firstname }} </td>
         <td> {{ $member->lastname }} </td>
