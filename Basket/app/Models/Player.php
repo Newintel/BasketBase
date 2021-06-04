@@ -14,7 +14,7 @@ class Player extends Model
     }
 
     public function teams(){
-        return $this->belongsToMany(Team::class, 'plays_in', 'player', 'team');
+        return $this->belongsToMany(Team::class, 'plays_in', 'player', 'team')->withPivot('from_season', 'to_season', 'transfer');
     }
 
     public function is_captain(){

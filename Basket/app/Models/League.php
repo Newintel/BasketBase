@@ -14,6 +14,10 @@ class League extends Model
     }
 
     public function winners(){
-        return $this->belongsToMany(Team::class, 'wins', 'league', 'team');
+        return $this->belongsToMany(Team::class, 'wins', 'league', 'team')->withPivot('season');
+    }
+
+    public function a(){
+        return 8;
     }
 }

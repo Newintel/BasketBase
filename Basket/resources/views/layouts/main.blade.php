@@ -23,7 +23,7 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="#">NBA</a>
                 </li>
                 <!--
                 <li class="nav-item">
@@ -38,6 +38,7 @@
                         <li><a class="dropdown-item" href="{{ url('/players') }}">Players</a></li>
                         <li><a class="dropdown-item" href="{{ url('/coaches') }}">Coaches</a></li>
                         <li><a class="dropdown-item" href="{{ url('/members') }}">Every listed members</a></li>
+                        <li><a class="dropdown-item" href="{{ url('/leagues') }}">Leagues</a></li>
                     </ul>
                 </li>
             </ul>

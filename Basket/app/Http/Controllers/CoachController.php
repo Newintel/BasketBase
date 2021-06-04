@@ -15,7 +15,7 @@ class CoachController extends Controller
     public function index()
     {
         $coaches = Coach::all();
-        return view('coaches', compact('coaches'));
+        return view('indexes.coaches', compact('coaches'));
     }
 
     /**

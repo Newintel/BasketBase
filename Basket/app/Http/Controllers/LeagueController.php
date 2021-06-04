@@ -15,7 +15,7 @@ class LeagueController extends Controller
     public function index()
     {
         $leagues = League::all();
-        return view('leagues', compact('leagues'));
+        return view('indexes.leagues', compact('leagues'));
     }
 
     /**
@@ -47,7 +47,9 @@ class LeagueController extends Controller
      */
     public function show(League $league)
     {
-        //
+        $winners = $league->winners;
+        uasort($winners, fn($winner) => $winner->pivot->season);
+        return view('league', compact('league', 'winners'));
     }
 
     /**

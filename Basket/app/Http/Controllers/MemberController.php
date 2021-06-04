@@ -15,7 +15,7 @@ class MemberController extends Controller
     public function index()
     {
         $members = Member::all();
-        return view('members', compact('members'));
+        return view('indexes.members', compact('members'));
     }
 
     /**
@@ -47,7 +47,9 @@ class MemberController extends Controller
      */
     public function show(Member $member)
     {
-        //
+        $player = $member->player;
+        $coach = $member->coach;
+        return view('member', compact('member', 'player', 'coach'));
     }
 
     /**
