@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Player;
 use Illuminate\Http\Request;
+use DB;
 
 class PlayerController extends Controller
 {
@@ -48,10 +49,15 @@ class PlayerController extends Controller
     public function show(Player $player)
     {
         $teams = $player->teams;
-        $awards = $player->member->awards->groupBy('id')->sortBy('id');
-        $wins = $player->wins();
+        $awards = $player->member->awards->groupBy(fn($win) => $win->pivot->league);
+        $wins = $player->wins()->groupBy('league');
+
+        $leagues_id = array_unique(array_merge(array_keys($wins->toArray()), array_keys($awards->toArray())));
+        sort($leagues_id);
+        $leagues = array_map(fn($l)=>DB::table('leagues')->find($l)->shortname, $leagues_id);
+
         $member = $player->member;
-        return view('show.member_show', compact('member', 'teams', 'wins', 'awards'));
+        return view('show.member_show', compact('member', 'teams', 'wins', 'awards', 'leagues', 'leagues_id'));
     }
 
     /**

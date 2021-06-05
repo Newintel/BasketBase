@@ -10,3 +10,7 @@ div#awards>ul>li{
     text-align: center;
     list-style-type: none;
 }
+
+div#pagediv{
+    margin-top: 2.5vh;
+}

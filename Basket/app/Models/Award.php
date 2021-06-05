@@ -9,11 +9,11 @@ class Award extends Model
 {
     use HasFactory;
 
-    public function players(){
-        return $this->belongsToMany(Player::class);
+    public function members(){
+        return $this->belongsToMany(Member::class, 'wins_award', 'award', 'member')->withPivot('season');
     }
 
     public function leagues(){
-        return $this->belongsToMany(League::class);
+        return $this->belongsToMany(League::class, 'wins_award', 'award', 'league')->withPivot('season');
     }
 }

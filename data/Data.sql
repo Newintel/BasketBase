@@ -268,6 +268,5 @@ insert into wins_award (member, league, award, season) values
 (4, 1, 1, 2011),
 (4, 1, 1, 2012),
 (4, 1, 4, 2003),
-(3, 2, 6, 1984),
 (5, 2, 1, 2017),
 (5, 1, 4, 2018);

@@ -38,11 +38,11 @@ class Player extends Model
             ->join('league_team', 'league_team.team', '=', 'teams.id')
             ->join('leagues', 'league_team.league', '=', 'leagues.id')
             ->join('wins', 'wins.team', '=', 'teams.id')
-            ->select('leagues.shortname as league', 'wins.season as season', 'teams.name as team')
+            ->select('leagues.id as league', 'wins.season as season', 'teams.name as team')
             ->whereRaw('league_team.league = wins.league')
             ->whereRaw("players.id = $this->id")
             ->whereRaw('plays_in.from_season <= wins.season')
-            ->whereRaw('plays_in.to_season > wins.season')
+            ->whereRaw('plays_in.to_season >= wins.season')
             ->get()->sortBy('season');
     }
 }
