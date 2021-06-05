@@ -47,10 +47,12 @@ class CoachController extends Controller
      */
     public function show(Coach $coach)
     {
-        $teams = $coach->teams;
+        $teams = $coach->teams->sortBy('from_season');
         $awards = $coach->member->awards->groupBy('id')->sortBy('id');
-        $wins = $coach->wins();
-        return view('show.coach', compact('coach', 'teams', 'awards', 'wins'));
+        $wins = $coach->wins()->sortBy('league');
+        $title = "Coached ";
+        $member = $coach->member;
+        return view('show.member_show', compact('member', 'title', 'teams', 'awards', 'wins'));
     }
 
     /**

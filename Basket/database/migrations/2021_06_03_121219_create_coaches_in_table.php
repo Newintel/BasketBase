@@ -27,7 +27,7 @@ class CreateCoachesInTable extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->year('from_season');
-            $table->year('to_season');
+            $table->year('to_season')->nullable();
         });
         DB::statement('ALTER TABLE coaches_in ADD CONSTRAINT coaches_years CHECK (from_season <= to_season)');
     }

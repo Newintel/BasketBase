@@ -43,6 +43,6 @@ class Player extends Model
             ->whereRaw("players.id = $this->id")
             ->whereRaw('plays_in.from_season <= wins.season')
             ->whereRaw('plays_in.to_season > wins.season')
-            ->get();
+            ->get()->sortBy('season');
     }
 }

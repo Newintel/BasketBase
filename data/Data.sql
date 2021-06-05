@@ -4,13 +4,17 @@ use Basket;
 insert into members (firstname, lastname, birthdate, origin, hof, dead, active) values
 ('Dirk', 'Nowitzki', '1978-6-19', 'Germany', false, false, false),
 ( 'Kobe', 'Bryant', '1978-8-23', 'USA', true, true, false),
-('Phil', 'Jackson', '1945-9-17', 'USA', true, false, false);
+('Phil', 'Jackson', '1945-9-17', 'USA', true, false, false),
+('Lebron', 'James', '1984-12-30', 'USA', false, false, true),
+('Doncic', 'Luka', '1999-2-28', 'Slovenia', false, false, true);
 
 -- players
 insert into players (member_id, position, height, weight, gender, retired) values
 (1, 6, 213, 111, 1, 2019),
 (2, 3, 198, 96, 1, 2016),
-(3, 2, 203, 100, 1, 1980);
+(3, 2, 203, 100, 1, 1980),
+(4, 2, 206, 113, 1, null),
+(5, 1, 201, 104, 1, null);
 
 -- coaches
 insert into coaches (member_id, retired) values (3, 2011);
@@ -26,7 +30,8 @@ insert into awards (name, fullname) values
 
 -- leagues
 insert into leagues (name, shortname, region) values
-('National Basketball Association', 'NBA', 'North America');
+('National Basketball Association', 'NBA', 'North America'),
+('Turkish Airlines Euroleague', 'Euroleague', 'Europe');
 
 -- teams
 insert into teams (name, shortname, city, country) values
@@ -59,7 +64,18 @@ insert into teams (name, shortname, city, country) values
 ('Nets', 'BKN', 'Brooklyn', 'USA'),
 ('Knicks', 'NYK', 'New York', 'USA'),
 ('76ers', 'PHI', 'Philadelphia', 'USA'),
-('Raptors', 'TOR', 'Toronto', 'USA');
+('Raptors', 'TOR', 'Toronto', 'USA'),
+('Anadolu Efes', 'Anadolu Efes', 'Istanbul', 'Turkey'),
+('Saski Baskonia', 'Baskonia', 'Vitoria-Gasteiz', 'Spain'),
+('CSKA Moscow', 'CSKA', 'Moscow', 'Russia'),
+('FC Barcelona', 'FC Barcelona', 'Barcelona', 'Spain'),
+('Real Madrid', 'Real Madrid', 'Madrid', 'Spain'),
+('Panathinaikos BC', 'Panathinaikos', 'Athens', 'Grece'),
+('Olympiacos BC', 'Olympiacos', 'Piraeus', 'Grece'),
+('Pallacanestro Olimpia Milano', 'Olimpia Milano', 'Milan', 'Italy'),
+('Maccabi Tel-Aviv', 'Maccabi Fox', 'Tel-Aviv', 'Israel'),
+('Basketball Club Zalgiris', 'Zalgiris', 'Kaunas', 'Lithuania'),
+('Fenerbahce Basketball', 'Fenerbahce', 'Istanbul', 'Turkey');
 
 -- league team
 insert into league_team (league, team) values
@@ -92,39 +108,148 @@ insert into league_team (league, team) values
 (1, 27),
 (1, 28),
 (1, 29),
-(1, 30);
+(1, 30),
+(2, 31),
+(2, 32),
+(2, 33),
+(2, 34),
+(2, 35),
+(2, 36),
+(2, 37),
+(2, 38),
+(2, 39),
+(2, 40),
+(2, 41);
 
 -- wins
 insert into wins (league, team, season) values
+(1, 1, 2010),
+(1, 2, 1993),
+(1, 2, 1994),
+(1, 5, 1998),
+(1, 5, 2002),
+(1, 5, 2004),
+(1, 5, 2006),
+(1, 5, 2013),
+(1, 6, 1946),
+(1, 6, 1955),
+(1, 6, 1974),
+(1, 6, 2014),
+(1, 6, 2016),
+(1, 6, 2017),
+(1, 8, 1948),
+(1, 8, 1949),
+(1, 8, 1951),
+(1, 8, 1952),
+(1, 8, 1953),
+(1, 8, 1971),
+(1, 8, 1979),
+(1, 8, 1981),
+(1, 8, 1984),
+(1, 8, 1986),
+(1, 8, 1987),
 (1, 8, 1999),
 (1, 8, 2000),
 (1, 8, 2001),
-(1, 5, 2002),
-(1, 23, 2003),
-(1, 5, 2004),
-(1, 18, 2005),
-(1, 5, 2006),
-(1, 26, 2007),
 (1, 8, 2008),
 (1, 8, 2009),
-(1, 1, 2010),
+(1, 8, 2019),
+(1, 10, 1950),
+(1, 13, 1978),
+(1, 13, 1976),
+(1, 15, 1957),
+(1, 18, 2005),
 (1, 18, 2011),
 (1, 18, 2012),
-(1, 5, 2013),
-(1, 6, 2014),
+(1, 20, 1977),
+(1, 21, 1990),
+(1, 21, 1991),
+(1, 21, 1992),
+(1, 21, 1995),
+(1, 21, 1996),
+(1, 21, 1997),
 (1, 22, 2015),
-(1, 6, 2016),
-(1, 6, 2017),
+(1, 23, 1988),
+(1, 23, 1989),
+(1, 23, 2003),
+(1, 25, 1970),
+(1, 26, 1956),
+(1, 26, 1958),
+(1, 26, 1959),
+(1, 26, 1960),
+(1, 26, 1961),
+(1, 26, 1962),
+(1, 26, 1963),
+(1, 26, 1964),
+(1, 26, 1965),
+(1, 26, 1967),
+(1, 26, 1968),
+(1, 26, 1973),
+(1, 26, 1975),
+(1, 26, 1980),
+(1, 26, 1983),
+(1, 26, 1985),
+(1, 26, 2007),
+(1, 28, 1969),
+(1, 28, 1972),
+(1, 29, 1954),
+(1, 29, 1966),
+(1, 29, 1982),
 (1, 30, 2018),
-(1, 8, 2019);
-
+(2, 31, 2020),
+(2, 33, 1962),
+(2, 33, 1962),
+(2, 33, 1968),
+(2, 33, 1970),
+(2, 33, 2005),
+(2, 33, 2007),
+(2, 33, 2015),
+(2, 33, 2018),
+(2, 34, 2002),
+(2, 34, 2009),
+(2, 35, 2014),
+(2, 35, 2017),
+(2, 35, 1963),
+(2, 35, 1964),
+(2, 35, 1966),
+(2, 35, 1967),
+(2, 35, 1973),
+(2, 35, 1977),
+(2, 35, 1979),
+(2, 35, 1994),
+(2, 36, 1995),
+(2, 36, 1999),
+(2, 36, 2001),
+(2, 36, 2006),
+(2, 36, 2008),
+(2, 36, 2010),
+(2, 37, 1996),
+(2, 37, 2011),
+(2, 37, 2012),
+(2, 38, 1965),
+(2, 38, 1986),
+(2, 38, 1987),
+(2, 39, 1976),
+(2, 39, 1980),
+(2, 39, 2000),
+(2, 39, 2003),
+(2, 39, 2004),
+(2, 39, 2013),
+(2, 40, 1998),
+(2, 41, 2016);
 
 -- plays in
 insert into plays_in (player, team, from_season, to_season) values
 (1, 1, 1998, 2018),
 (2, 8, 1996, 2015),
 (3, 28, 1967, 1977),
-(3, 27, 1978, 1979);
+(3, 27, 1978, 1979),
+(4, 22, 2003, 2008),
+(4, 22, 2014, 2017),
+(4, 8, 2018, null),
+(4, 18, 2009, 2013),
+(5, 35, 2015, 2017),
+(5, 1, 2018, null);
 
 -- coaches in
 insert into coaches_in (coach, team, from_season, to_season) values
@@ -135,6 +260,14 @@ insert into coaches_in (coach, team, from_season, to_season) values
 
 -- wins_award
 insert into wins_award (member, league, award, season) values
-(1, 1, 1, 2007),
-(2, 1, 1, 2008),
-(3, 1, 6, 1996);
+(1, 1, 1, 2006),
+(2, 1, 1, 2007),
+(3, 1, 6, 1995),
+(4, 1, 1, 2008),
+(4, 1, 1, 2009),
+(4, 1, 1, 2011),
+(4, 1, 1, 2012),
+(4, 1, 4, 2003),
+(3, 2, 6, 1984),
+(5, 2, 1, 2017),
+(5, 1, 4, 2018);

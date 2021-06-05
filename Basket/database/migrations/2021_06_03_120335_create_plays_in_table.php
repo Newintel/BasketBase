@@ -27,11 +27,11 @@ class CreatePlaysInTable extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->year('from_season');
-            $table->year('to_season');
+            $table->year('to_season')->nullable();
             $table->set('transfer', ['start', 'end'])->default('');
             $table->unique(['team', 'player']);
         });
-        DB::statement('ALTER TABLE plays_in ADD CONSTRAINT players_years CHECK (from_season <= to_season)');
+        DB::statement('ALTER TABLE plays_in ADD CONSTRAINT players_years CHECK (to_season = null or from_season <= to_season)');
     }
 
     /**

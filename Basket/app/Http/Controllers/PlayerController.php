@@ -48,9 +48,10 @@ class PlayerController extends Controller
     public function show(Player $player)
     {
         $teams = $player->teams;
-        $awards = $player->member->awards;
+        $awards = $player->member->awards->groupBy('id')->sortBy('id');
         $wins = $player->wins();
-        return view('show.player', compact('player', 'teams', 'awards', 'wins'));
+        $member = $player->member;
+        return view('show.member_show', compact('member', 'teams', 'wins', 'awards'));
     }
 
     /**

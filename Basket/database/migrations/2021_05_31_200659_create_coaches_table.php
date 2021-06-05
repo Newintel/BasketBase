@@ -22,7 +22,7 @@ class CreateCoachesTable extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->unique('member_id');
-            $table->year('retired');
+            $table->year('retired')->nullable();
         });
     }
 
