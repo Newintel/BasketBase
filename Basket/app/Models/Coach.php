@@ -26,12 +26,24 @@ class Coach extends Model
             ->join('league_team', 'league_team.team', '=', 'teams.id')
             ->join('leagues', 'league_team.league', '=', 'leagues.id')
             ->join('wins', 'wins.team', '=', 'teams.id')
-            ->select('leagues.shortname as league', 'wins.season as season', 'teams.name as team')
+            ->select('leagues.id as league', 'wins.season as season', 'teams.name as team')
             ->whereRaw('league_team.league = wins.league')
             ->whereRaw("coaches.id = $this->id")
             ->whereRaw('coaches_in.from_season <= wins.season')
             ->whereRaw('coaches_in.to_season > wins.season')
             ->get()->sortBy('season');
         ;
+    }
+
+    public function teams_in_order(){
+        return DB::table('coaches')
+            ->join('coaches_in', 'coaches.id', 'coaches_in.coach')
+            ->join('teams', 'coaches_in.team', 'teams.id')
+            ->join('league_team', 'league_team.team', 'teams.id')
+            ->join('leagues', 'leagues.id', 'league_team.league')
+            ->select('leagues.shortname as league', 'teams.name as team', 'teams.city as city', 'coaches_in.from_season as from', 'coaches_in.to_season as to')
+            ->whereRaw("coaches.id = $this->id")
+            ->orderBy('from')
+            ->get();
     }
 }

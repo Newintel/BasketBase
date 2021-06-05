@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Coach;
 use Illuminate\Http\Request;
+use DB;
 
 class CoachController extends Controller
 {
@@ -47,12 +48,17 @@ class CoachController extends Controller
      */
     public function show(Coach $coach)
     {
-        $teams = $coach->teams->sortBy('from_season');
-        $awards = $coach->member->awards->groupBy('id')->sortBy('id');
-        $wins = $coach->wins()->sortBy('league');
-        $title = "Coached ";
+        $teams = $coach->teams_in_order();
+
+        $awards = $coach->member->awards->groupBy(fn($win) => $win->pivot->league);
+        $wins = $coach->wins()->groupBy('league');
+
+        $leagues_id = array_unique(array_merge(array_keys($wins->toArray()), array_keys($awards->toArray())));
+        sort($leagues_id);
+        $leagues = array_map(fn($l)=>DB::table('leagues')->find($l)->shortname, $leagues_id);
+
         $member = $coach->member;
-        return view('show.member_show', compact('member', 'title', 'teams', 'awards', 'wins'));
+        return view('show.member_show', compact('member', 'teams', 'wins', 'awards', 'leagues', 'leagues_id'));
     }
 
     /**

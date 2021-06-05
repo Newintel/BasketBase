@@ -45,4 +45,16 @@ class Player extends Model
             ->whereRaw('plays_in.to_season >= wins.season')
             ->get()->sortBy('season');
     }
+
+    public function teams_in_order(){
+        return DB::table('players')
+            ->join('plays_in', 'players.id', 'plays_in.player')
+            ->join('teams', 'plays_in.team', 'teams.id')
+            ->join('league_team', 'league_team.team', 'teams.id')
+            ->join('leagues', 'leagues.id', 'league_team.league')
+            ->select('leagues.shortname as league', 'teams.name as team', 'teams.city as city', 'plays_in.from_season as from', 'plays_in.to_season as to')
+            ->whereRaw("players.id = $this->id")
+            ->orderBy('from')
+            ->get();
+    }
 }
