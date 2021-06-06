@@ -1,4 +1,4 @@
 .pp{
-    height: 10vh;
-    width: 10vh;
+    max-height: 20vh;
+    max-width: 20vh;
 }

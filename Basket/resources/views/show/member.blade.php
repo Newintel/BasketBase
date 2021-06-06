@@ -30,7 +30,7 @@
         </div>
         @if ($player)
             <div class="tab-pane fade ratio ratio-21x9" id="nav-player" role="tabpanel" aria-labelledby="nav-player-tab">
-                <iframe src="{{ route('players.show', $player->id) }}"></iframe>
+                <iframe class="border" src="{{ route('players.show', $player->id) }}"></iframe>
             </div>
         @endif
         @if ($coach)

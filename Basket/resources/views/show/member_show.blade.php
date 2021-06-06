@@ -74,7 +74,7 @@
                                         foreach ($_wins as $team=>$win){
                                             $_seasons = array_map(fn($w) => $w->season + 1, $win);
                                             $seasons = implode(', ', $_seasons);
-                                            echo "<li class='list-group-item'>$team ($seasons)</li>";
+                                            echo "<li class='list-group-item text-center'>$team ($seasons)</li>";
                                         }
                                     @endphp
                                 </ul>

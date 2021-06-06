@@ -1,13 +1,13 @@
 use Basket;
 
 -- members
-insert into members (firstname, lastname, birthdate, origin, hof, dead, active) values
-('Dirk', 'Nowitzki', '1978-6-19', 'Germany', false, false, false),
-( 'Kobe', 'Bryant', '1978-8-23', 'USA', true, true, false),
-('Phil', 'Jackson', '1945-9-17', 'USA', true, false, false),
-('Lebron', 'James', '1984-12-30', 'USA', false, false, true),
-('Luka', 'Doncic', '1999-2-28', 'Slovenia', false, false, true),
-('Steve', 'Kerr', '1965-9-27', 'America', false, false, true);
+insert into members (firstname, lastname, birthdate, origin, hof, dead, active, image) values
+('Dirk', 'Nowitzki', '1978-6-19', 'Germany', false, false, false, 'dirk_nowitzki.jpg'),
+( 'Kobe', 'Bryant', '1978-8-23', 'USA', true, true, false, 'kobe_bryant.jpg'),
+('Phil', 'Jackson', '1945-9-17', 'USA', true, false, false, 'phil_jackson.jpg'),
+('Lebron', 'James', '1984-12-30', 'USA', false, false, true, 'lebron_james.jpg'),
+('Luka', 'Doncic', '1999-2-28', 'Slovenia', false, false, true, 'luka_doncic.jpg'),
+('Steve', 'Kerr', '1965-9-27', 'America', false, false, true, 'steve_kerr.jpg');
 
 -- players
 insert into players (member_id, position, height, weight, gender, retired) values
