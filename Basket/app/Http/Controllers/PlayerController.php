@@ -48,7 +48,7 @@ class PlayerController extends Controller
      */
     public function show(Player $player)
     {
-        $teams = $player->teams_in_order();
+        $teams = $player->teams_in_order()->groupBy('league')->toArray();
         $awards = $player->member->awards->groupBy(fn($win) => $win->pivot->league);
         $wins = $player->wins()->groupBy('league');
 

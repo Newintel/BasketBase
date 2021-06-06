@@ -25,14 +25,14 @@
                 $div += $wins_set ? 1 : 0;
                 $num /= $div;
             @endphp
-            <div class="tab-pane fade {{$i == 0 ? 'active show' : ''}}" id="nav-{{ $league }}" role="tabpanel" aria-labelledby="nav-{{ $league }}-tab">
+            <div class="infos border-bottom border-2 rounded-3 border-primary tab-pane fade {{$i == 0 ? 'active show' : ''}}" id="nav-{{ $league }}" role="tabpanel" aria-labelledby="nav-{{ $league }}-tab">
                 <div class="row">
                     <div id="history" class="col">
                         <h3>{{ ($title ?? '').'Teams' }}</h3>
                         <ul class="list-group">
-                            @foreach ($teams as $team)
+                            @foreach ($teams[$leagues_id[$i]] as $team)
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    {{ ($team->league == 'NBA'  ? $team->city." " : "").$team->team}}
+                                    {{ ($team->league == 1  ? $team->city." " : "").$team->team}}
                                     <span class="badge bg-primary rounded-pill">
                                         {{ $team->from." - ".($team->to ? $team->to + 1 : "now") }}
                                     </span>
@@ -88,7 +88,7 @@
             @endphp
         @endforeach
         <nav class="row" id="pagediv">
-            <div class="nav nav-pills" id="nav-tab" role="tablist">
+            <div class="nav nav-pills justify-content-center" id="nav-tab" role="tablist">
                 @php
                     $i = 0;    
                 @endphp

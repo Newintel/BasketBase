@@ -48,7 +48,7 @@ class CoachController extends Controller
      */
     public function show(Coach $coach)
     {
-        $teams = $coach->teams_in_order();
+        $teams = $coach->teams_in_order()->groupBy('league')->toArray();
 
         $awards = $coach->member->awards->groupBy(fn($win) => $win->pivot->league);
         $wins = $coach->wins()->groupBy('league');

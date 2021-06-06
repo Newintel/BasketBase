@@ -14,3 +14,7 @@ div#awards>ul>li{
 div#pagediv{
     margin-top: 2.5vh;
 }
+
+div.infos{
+    padding-bottom: 2.5vh;
+}

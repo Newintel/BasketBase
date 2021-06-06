@@ -41,7 +41,7 @@ class Coach extends Model
             ->join('teams', 'coaches_in.team', 'teams.id')
             ->join('league_team', 'league_team.team', 'teams.id')
             ->join('leagues', 'leagues.id', 'league_team.league')
-            ->select('leagues.shortname as league', 'teams.name as team', 'teams.city as city', 'coaches_in.from_season as from', 'coaches_in.to_season as to')
+            ->select('leagues.id as league', 'teams.name as team', 'teams.city as city', 'coaches_in.from_season as from', 'coaches_in.to_season as to')
             ->whereRaw("coaches.id = $this->id")
             ->orderBy('from')
             ->get();

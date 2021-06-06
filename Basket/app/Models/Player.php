@@ -42,7 +42,7 @@ class Player extends Model
             ->whereRaw('league_team.league = wins.league')
             ->whereRaw("players.id = $this->id")
             ->whereRaw('plays_in.from_season <= wins.season')
-            ->whereRaw('plays_in.to_season > wins.season or (plays_in.to_season = wins.season and not (plays_in.transfer = "end" or plays_in.transfer = "start,end"))')
+            ->whereRaw('(plays_in.to_season is null or plays_in.to_season > wins.season or (plays_in.to_season = wins.season and not (plays_in.transfer = "end" or plays_in.transfer = "start,end")))')
             ->get()->sortBy('season');
     }
 
@@ -52,7 +52,7 @@ class Player extends Model
             ->join('teams', 'plays_in.team', 'teams.id')
             ->join('league_team', 'league_team.team', 'teams.id')
             ->join('leagues', 'leagues.id', 'league_team.league')
-            ->select('leagues.shortname as league', 'teams.name as team', 'teams.city as city', 'plays_in.from_season as from', 'plays_in.to_season as to')
+            ->select('leagues.id as league', 'teams.name as team', 'teams.city as city', 'plays_in.from_season as from', 'plays_in.to_season as to')
             ->whereRaw("players.id = $this->id")
             ->orderBy('from')
             ->get();
