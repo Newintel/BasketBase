@@ -6,7 +6,8 @@ insert into members (firstname, lastname, birthdate, origin, hof, dead, active) 
 ( 'Kobe', 'Bryant', '1978-8-23', 'USA', true, true, false),
 ('Phil', 'Jackson', '1945-9-17', 'USA', true, false, false),
 ('Lebron', 'James', '1984-12-30', 'USA', false, false, true),
-('Doncic', 'Luka', '1999-2-28', 'Slovenia', false, false, true);
+('Luka', 'Doncic', '1999-2-28', 'Slovenia', false, false, true),
+('Steve', 'Kerr', '1965-9-27', 'America', false, false, true);
 
 -- players
 insert into players (member_id, position, height, weight, gender, retired) values
@@ -14,10 +15,11 @@ insert into players (member_id, position, height, weight, gender, retired) value
 (2, 3, 198, 96, 1, 2016),
 (3, 2, 203, 100, 1, 1980),
 (4, 2, 206, 113, 1, null),
-(5, 1, 201, 104, 1, null);
+(5, 1, 201, 104, 1, null),
+(6, 1, 185, 82, 1, 2002);
 
 -- coaches
-insert into coaches (member_id, retired) values (3, 2011);
+insert into coaches (member_id, retired) values (3, 2011), (6, null);
 
 -- awards
 insert into awards (name, fullname) values
@@ -249,14 +251,25 @@ insert into plays_in (player, team, from_season, to_season) values
 (4, 8, 2018, null),
 (4, 18, 2009, 2013),
 (5, 35, 2015, 2017),
-(5, 1, 2018, null);
+(5, 1, 2018, null),
+(6, 9, 1988, 1988),
+(6, 22, 1989, 1991),
+(6, 5, 1998, 2000),
+(6, 14, 2001, 2001),
+(6, 5, 2002, 2002);
+
+insert into plays_in (player, team, from_season, to_season, transfer) values
+(6, 19, 1992, 1992, 2),
+(6, 21, 1992, 1997, 1)
+;
 
 -- coaches in
 insert into coaches_in (coach, team, from_season, to_season) values
 (1, 27, 1978, 1980),
 (1, 21, 1987, 1997),
 (1, 8, 1999, 2003),
-(1, 8, 2005, 2010);
+(1, 8, 2005, 2010),
+(2, 6, 2014, null);
 
 -- wins_award
 insert into wins_award (member, league, award, season) values

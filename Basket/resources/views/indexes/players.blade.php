@@ -24,7 +24,7 @@
         <td> {{ $player->member->firstname }} </td>
         <td> {{ $player->member->lastname }} </td>
         <td> {{ $player->position }} </td>
-        <td> {{ $player->member->active ? "Yes" : "No"}} </td>
+        <td> {{ $player->retired ? "No" : "Yes"}} </td>
         <td> {{ (int)($player->height/100) . "m" . $player->height%100 }} </td>
         <td> {{ $player->weight }} kg </td>
         <td> {{ $player->gender }} </td>

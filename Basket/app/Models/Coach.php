@@ -30,7 +30,7 @@ class Coach extends Model
             ->whereRaw('league_team.league = wins.league')
             ->whereRaw("coaches.id = $this->id")
             ->whereRaw('coaches_in.from_season <= wins.season')
-            ->whereRaw('coaches_in.to_season > wins.season')
+            ->whereRaw('(coaches_in.to_season > wins.season or coaches_in.to_season is null)')
             ->get()->sortBy('season');
         ;
     }
