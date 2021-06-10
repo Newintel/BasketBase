@@ -7,7 +7,8 @@ insert into members (firstname, lastname, birthdate, origin, hof, dead, active, 
 ('Phil', 'Jackson', '1945-9-17', 'USA', true, false, false, 'phil_jackson.jpg'),
 ('Lebron', 'James', '1984-12-30', 'USA', false, false, true, 'lebron_james.jpg'),
 ('Luka', 'Doncic', '1999-2-28', 'Slovenia', false, false, true, 'luka_doncic.jpg'),
-('Steve', 'Kerr', '1965-9-27', 'America', false, false, true, 'steve_kerr.jpg');
+('Steve', 'Kerr', '1965-9-27', 'USA', false, false, true, 'steve_kerr.jpg'),
+('Michael', 'Jordan', '1963-2-17', 'USA', true, false, false, 'michael_jordan.jpg');
 
 -- players
 insert into players (member_id, position, height, weight, gender, retired) values
@@ -16,7 +17,8 @@ insert into players (member_id, position, height, weight, gender, retired) value
 (3, 2, 203, 100, 1, 1980),
 (4, 2, 206, 113, 1, null),
 (5, 1, 201, 104, 1, null),
-(6, 1, 185, 82, 1, 2002);
+(6, 1, 185, 82, 1, 2002),
+(7, 1, 198, 98, 1, 2002);
 
 -- coaches
 insert into coaches (member_id, retired) values (3, 2011), (6, null);
@@ -28,7 +30,14 @@ insert into awards (name, fullname) values
 ('6MOY', 'Sixth Man of the Year'),
 ('ROY', 'Rookie of the Year'),
 ('MIP', 'Most Improved Player'),
-('COY', 'Coach of the Year');
+('COY', 'Coach of the Year'),
+('FMVP', 'Finals Most Valuable Player'),
+('Scoring Champion', 'Scoring Champion'),
+('Assist Leader', 'Assist Leader'),
+('Rebounds Leader', 'Rebounds Leader'),
+('Blocks Leader', 'Blocks Leader'),
+('Steals Leader', 'Steals Leader'),
+('Final Four MVP', 'Final Four Most Valuable Player');
 
 -- leagues
 insert into leagues (name, shortname, region) values
@@ -256,12 +265,14 @@ insert into plays_in (player, team, from_season, to_season) values
 (6, 22, 1989, 1991),
 (6, 5, 1998, 2000),
 (6, 14, 2001, 2001),
-(6, 5, 2002, 2002);
+(6, 5, 2002, 2002),
+(7, 21, 1984, 1992),
+(7, 21, 1995, 1997),
+(7, 17, 2001, 2002);
 
 insert into plays_in (player, team, from_season, to_season, transfer) values
 (6, 19, 1992, 1992, 2),
-(6, 21, 1992, 1997, 1)
-;
+(6, 21, 1992, 1997, 1);
 
 -- coaches in
 insert into coaches_in (coach, team, from_season, to_season) values
@@ -282,4 +293,39 @@ insert into wins_award (member, league, award, season) values
 (4, 1, 1, 2012),
 (4, 1, 4, 2003),
 (5, 2, 1, 2017),
-(5, 1, 4, 2018);
+(5, 1, 4, 2018),
+(7, 1, 1, 1987),
+(7, 1, 1, 1990),
+(7, 1, 1, 1991),
+(7, 1, 1, 1995),
+(7, 1, 1, 1997),
+(7, 1, 2, 1987),
+(7, 1, 4, 1985),
+(1, 1, 7, 2010),
+(2, 1, 7, 2008),
+(2, 1, 7, 2009),
+(2, 1, 8, 2005),
+(2, 1, 8, 2005),
+(7, 1, 7, 1990),
+(7, 1, 7, 1991),
+(7, 1, 7, 1992),
+(7, 1, 7, 1995),
+(7, 1, 7, 1996),
+(7, 1, 7, 1997),
+(7, 1, 8, 1986),
+(7, 1, 8, 1987),
+(7, 1, 8, 1988),
+(7, 1, 8, 1989),
+(7, 1, 8, 1990),
+(7, 1, 8, 1991),
+(7, 1, 8, 1992),
+(7, 1, 8, 1995),
+(7, 1, 8, 1996),
+(7, 1, 8, 1997),
+(7, 1, 12, 1987),
+(7, 1, 12, 1989),
+(7, 1, 12, 1991),
+(4, 1, 8, 2007),
+(4, 1, 9, 2019),
+(5, 2, 13, 2017)
+;
