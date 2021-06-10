@@ -46,21 +46,26 @@
                             <ul class='list-group list-group-flush'>
                                 @php
                                     $_awards = $awards[$leagues_id[$i]];
-                                    $aw = $_awards->sortBy('id');
-                                    $times = 0;
-                                    $seasons = [];
-                                    if (isset($name)){
-                                        unset($name);
-                                    }
-                                    foreach ($aw as $award){
-                                        $name ??= $award->fullname;
-                                        $times += 1;
-                                        array_push($seasons, $award->pivot->season + 1);
-                                    }
+                                    $aw = $_awards->groupBy('id');
                                 @endphp
-                                <li class='list-group-item'>
-                                    <p>{{ ($times > 1 ? $times.' x ' : ' ').$name }} ({{ implode(", ", $seasons) }})</p>
-                                </li>
+                                @foreach ($aw as $award_list)
+                                    @php
+                                        $times = 0;
+                                        $seasons = [];
+                                        if (isset($name)){
+                                            unset($name);
+                                        }
+                                        foreach ($award_list as $award){
+                                            $name ??= $award->fullname;
+                                            $times += 1;
+                                            array_push($seasons, $award->pivot->season + 1);
+                                        }
+                                        sort($seasons);
+                                    @endphp
+                                    <li class='list-group-item'>
+                                        <p>{{ ($times > 1 ? $times.' x ' : ' ').$name }} ({{ implode(", ", $seasons) }})</p>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                     @endif
