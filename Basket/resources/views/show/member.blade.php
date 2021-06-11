@@ -25,7 +25,17 @@
     <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade ratio ratio-21x9 active show" id="nav-member" role="tabpanel" aria-labelledby="nav-member-tab">
             <div id="member" class="card">
-                <img src="{{ asset('/images/'.$member->image) }}" alt="{{ $member->firstname." ".$member->lastname }}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <ul class="myList">
+                                <li>Firstname: </li>
+                                <li>Lastname: </li>
+                                <li>Age: </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         @if ($player)
