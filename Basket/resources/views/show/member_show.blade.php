@@ -100,6 +100,7 @@
                 @foreach ($leagues as $league)
                     <button class="nav-link {{ $i == 0 ? 'active' : '' }}" id="nav-{{ $league }}-tab" data-bs-toggle="tab" data-bs-target="#nav-{{ $league }}" type="button" role="tab" aria-controls="nav-{{ $league }}" aria-selected={{ $i++ == 0 ? 'true' : 'false' }}>{{ $league }}</button>
                 @endforeach
+                <a href="{{ @auth view('editMember') @else view('login') }}" class="btn btn-primary">Modifier </a>
             </div>
         </nav>
     </div>

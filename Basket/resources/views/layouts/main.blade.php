@@ -23,25 +23,25 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">NBA</a>
+                        <a class="nav-link" href="{{ url('/players') }}">Players</a>
                     </li>
-                    <!--
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">A page</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/coaches') }}">Coaches</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/members') }}">Members</a>
+                    </li>
+                    @auth
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Add data
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="#">Member/Coach/Player</a></li>
+                                <li><a class="dropdown-item" href="#">League</a></li>
+                            </ul>
                         </li>
-                    -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Display
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="{{ url('/players') }}">Players</a></li>
-                            <li><a class="dropdown-item" href="{{ url('/coaches') }}">Coaches</a></li>
-                            <li><a class="dropdown-item" href="{{ url('/leagues') }}">Leagues</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="{{ url('/members') }}">Every listed members</a></li>
-                        </ul>
-                    </li>
+                    @endauth
                 </ul>
             </div>
         </div>

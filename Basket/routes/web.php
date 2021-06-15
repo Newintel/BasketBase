@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PlayerController;
+use App\Http\Controllers\CoachController;
+use App\Http\Controllers\MemberController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,5 +23,13 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::resource('players', PlayerController::class);
+Route::resource('members', MemberController::class);
+Route::resource('coaches', CoachController::class);
+
+Route::get('/login', function () {
+    view('auth.login');
+});
 
 require __DIR__.'/auth.php';

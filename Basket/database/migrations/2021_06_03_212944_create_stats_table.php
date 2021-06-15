@@ -14,19 +14,14 @@ class CreateStatsTable extends Migration
     public function up()
     {
         Schema::create('stats', function (Blueprint $table) {
-            $table->unsignedBigInteger('game');
-            $table->foreign('game')
-                ->references('id')
-                ->on('games')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
             $table->unsignedBigInteger('player');
             $table->foreign('player')
                 ->references('id')
                 ->on('players')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->integer('points');
+            $table->year('season');
+            $table->double('points');
         });
     }
 
