@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Member;
 use Illuminate\Http\Request;
+use App\Http\Requests\MemberRequest;
 
 class MemberController extends Controller
 {
@@ -70,9 +71,10 @@ class MemberController extends Controller
      * @param  \App\Models\Member  $member
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Member $member)
+    public function update(MemberRequest $request, Member $member)
     {
-        //
+        $manga->update($request->all());
+        return back()->with('info', 'le membre a bien été modifié dans la base de données');
     }
 
     /**

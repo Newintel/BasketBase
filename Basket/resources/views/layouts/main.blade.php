@@ -14,9 +14,9 @@
     @endforeach
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mx-auto">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">BasketBase</a>
+            <a class="navbar-brand" href="{{ url('/') }}">BasketBase</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -28,9 +28,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/coaches') }}">Coaches</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/members') }}">Members</a>
-                    </li>
                     @auth
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -41,23 +38,30 @@
                                 <li><a class="dropdown-item" href="#">League</a></li>
                             </ul>
                         </li>
-                        <a href="" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                            Bienvenue, {{ Auth::user()->name }}
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li>
-                                <a href="{{ route('logout') }}" class="dropdown-item"
-                                    onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-                                <form action="{{ route('logout') }}" id="logout-form" method="post," style="display: none;">
-                                    @csrf
-                                </form>
-                            </li>
-                        </ul>
+                        <li class="nav-item dropdown ms-auto">
+                            <a href="" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                Bienvenue, {{ Auth::user()->name }}
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li>
+                                    <a href="{{ route('logout') }}" class="dropdown-item"
+                                        onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+                                    <form action="{{ route('logout') }}" id="logout-form" method="post," style="display: none;">
+                                        @csrf
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
                     @else
-                        <a href="{{ route('login') }}" class="nav-link active ms-auto" aria-current="page">Login</a>
+                        <li class="nav-item ms-auto">
+                            <a href="{{ route('login') }}" class="nav-link active ms-auto" aria-current="page">Login</a>
+                        </li>
+                        <li class="nav-item ms-auto">
+                            <a href="{{ route('register') }}" class="nav-link active ms-auto" aria-current="page">Register</a>
+                        </li>
                     @endauth
                 </ul>
             </div>

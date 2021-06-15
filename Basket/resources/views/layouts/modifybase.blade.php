@@ -1,7 +1,7 @@
 @auth
     @extends('layouts.main')
 @else
-    <script>
-        window.location = "\login";
+    <script type="text/javascript">
+        window.location = "<?php echo route('login') ?>";
     </script>
 @endauth
