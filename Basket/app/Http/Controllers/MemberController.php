@@ -26,7 +26,7 @@ class MemberController extends Controller
      */
     public function create()
     {
-        //
+        return view('modify.editMember');
     }
 
     /**
@@ -37,7 +37,12 @@ class MemberController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        foreach (['active', 'dead', 'hof'] as $props){
+            $data[$props] = array_key_exists($props, $data);
+        }
+        Member::create($data);
+        return redirect('/');
     }
 
     /**
@@ -78,7 +83,7 @@ class MemberController extends Controller
             $data[$props] = array_key_exists($props, $data);
         }
         $member->update($data);
-        return back()->with('info', 'Le membre a bien été modifié dans la base de données');
+        return back()->with('info', 'Member data was modified');
     }
 
     /**

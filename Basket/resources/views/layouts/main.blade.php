@@ -34,7 +34,7 @@
                                 Add data
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">Member/Coach/Player</a></li>
+                                <li><a class="dropdown-item" href="{{ route('members.create') }}">Member/Coach/Player</a></li>
                                 <li><a class="dropdown-item" href="#">League</a></li>
                             </ul>
                         </li>

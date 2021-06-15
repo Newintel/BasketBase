@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Member extends Model
 {
     use HasFactory;
-    protected $guarded = [];
     public $timestamps = false;
+    protected $fillable = ['firstname', 'lastname', 'origin', 'active', 'dead', 'hof'];
 
     public function player(){
         return $this->hasOne(Player::class);
