@@ -10,7 +10,8 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     You're logged in!
-                    <a href="{{ url('/') }}">Go back to main page</a>
+                    <br>
+                    <a href="{{ url('/') }}" class="link-primary">Go back to main page</a>
                 </div>
             </div>
         </div>

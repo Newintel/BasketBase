@@ -42,17 +42,17 @@
             <span class="form-check-label" for="dead">Dead</span>
         </div>
         <br>
-        <div class="form-check" id="active-div">
+        <div class="form-check" id="active-div" @if($member->dead) style="display: none" @endif>
             <input type="checkbox" name="active" id="active" class="form-check-input" @if($member->active) checked @endif>
             <span class="form-check-label" for="active">Active</span>
         </div>
-        <br>
+        <br @if($member->dead) style="display: none" @endif>
         <div class="form-check">
-            <input type="checkbox" name="hof" id="hof" class="form-check-input" onchange="javascript:deactivate()" @if($member->hof) checked @endif>
+            <input type="checkbox" name="hof" id="hof" class="form-check-input" @if($member->hof) checked @endif>
             <span class="form-check-label" for="hof">Hall Of Famer</span>
         </div>
         <br>
-        <input class="btn btn-primary" type="submit" value="Submit">
+        <input class="btn btn-primary" type="submit" value="Submit" onclick="javascript:inputToBool()">
     </form>
     <script src="{{ asset('js/edit.js') }}"></script>
 @endsection

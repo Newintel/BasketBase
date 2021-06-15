@@ -25,6 +25,7 @@ class CreateMembersTable extends Migration
             $table->boolean('dead')->default(false);
             $table->unique(['firstname', 'lastname', 'birthdate']);
         });
+        DB::statement('ALTER TABLE members ADD CONSTRAINT dead_active CHECK (not (dead and active))');
     }
 
     /**

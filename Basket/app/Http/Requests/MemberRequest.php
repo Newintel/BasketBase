@@ -26,11 +26,11 @@ class MemberRequest extends FormRequest
         return [
             'firstname' => ['required', 'string', 'max:100'],
             'lastname' => ['required', 'string', 'max:100'],
-            'birthdate' => ['date'],
-            'origin' => ['string', 'max:100'],
-            'active' => ['boolean'],
-            'hof' => ['boolean'],
-            'dead' => ['boolean']
+            'birthdate' => ['required', 'date'],
+            'origin' => ['nullable', 'string', 'max:100'],
+            'active' => ['nullable', 'boolean'],
+            'hof' => ['nullable', 'boolean'],
+            'dead' => ['nullable', 'boolean']
         ];
     }
 }

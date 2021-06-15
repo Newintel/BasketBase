@@ -71,10 +71,14 @@ class MemberController extends Controller
      * @param  \App\Models\Member  $member
      * @return \Illuminate\Http\Response
      */
-    public function update(MemberRequest $request, Member $member)
+    public function update(Request $request, Member $member)
     {
-        $manga->update($request->all());
-        return back()->with('info', 'le membre a bien été modifié dans la base de données');
+        $data = $request->all();
+        foreach (['active', 'dead', 'hof'] as $props){
+            $data[$props] = array_key_exists($props, $data);
+        }
+        $member->update($data);
+        return back()->with('info', 'Le membre a bien été modifié dans la base de données');
     }
 
     /**
