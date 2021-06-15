@@ -18,6 +18,7 @@
         <th>Age</th>
         <th>Origin</th>
         <th>Hall of Fame</th>
+        <th></th>
     </thead>
     @foreach ($players as $player)
     <tr class="pointer" onclick="javascript:window.open('{{ route('players.show', $player->id) }}', '_self')">

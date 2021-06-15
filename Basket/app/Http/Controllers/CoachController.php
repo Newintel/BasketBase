@@ -69,7 +69,8 @@ class CoachController extends Controller
      */
     public function edit(Coach $coach)
     {
-        //
+        $member = $player->member;
+        return view('modify.editMember', compact('member'));
     }
 
     /**

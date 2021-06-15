@@ -68,7 +68,8 @@ class PlayerController extends Controller
      */
     public function edit(Player $player)
     {
-        //
+        $member = $player->member;
+        return view('modify.editMember', compact('member'));
     }
 
     /**

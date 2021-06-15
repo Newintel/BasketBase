@@ -92,7 +92,7 @@
                 $i++;
             @endphp
         @endforeach
-        <nav class="row" id="pagediv">
+        <nav class="row w-75 mx-auto" id="pagediv">
             <div class="nav nav-pills justify-content-center" id="nav-tab" role="tablist">
                 @php
                     $i = 0;    
@@ -100,7 +100,7 @@
                 @foreach ($leagues as $league)
                     <button class="nav-link {{ $i == 0 ? 'active' : '' }}" id="nav-{{ $league }}-tab" data-bs-toggle="tab" data-bs-target="#nav-{{ $league }}" type="button" role="tab" aria-controls="nav-{{ $league }}" aria-selected={{ $i++ == 0 ? 'true' : 'false' }}>{{ $league }}</button>
                 @endforeach
-                <a href="{{ @auth view('editMember') @else view('login') }}" class="btn btn-primary">Modifier </a>
+                <button onclick="window.parent.open('{{ url('/login') }}', '_self')" class="btn ms-auto nav-link"> Modify member </button>
             </div>
         </nav>
     </div>

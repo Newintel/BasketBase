@@ -41,6 +41,23 @@
                                 <li><a class="dropdown-item" href="#">League</a></li>
                             </ul>
                         </li>
+                        <a href="" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                            Bienvenue, {{ Auth::user()->name }}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li>
+                                <a href="{{ route('logout') }}" class="dropdown-item"
+                                    onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+                                <form action="{{ route('logout') }}" id="logout-form" method="post," style="display: none;">
+                                    @csrf
+                                </form>
+                            </li>
+                        </ul>
+                    @else
+                        <a href="{{ route('login') }}" class="nav-link active ms-auto" aria-current="page">Login</a>
                     @endauth
                 </ul>
             </div>

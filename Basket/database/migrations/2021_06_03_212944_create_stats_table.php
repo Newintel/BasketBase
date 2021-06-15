@@ -20,8 +20,17 @@ class CreateStatsTable extends Migration
                 ->on('players')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
+            $table->unsignedBigInteger('league');
+            $table->foreign('league')
+                ->references('id')
+                ->on('leagues')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->year('season');
-            $table->double('points');
+            $table->unique(['season', 'player', 'league']);
+            $table->double('ppg');
+            $table->double('rpg');
+            $table->double('apg');
         });
     }
 

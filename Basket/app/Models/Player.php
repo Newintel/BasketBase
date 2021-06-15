@@ -57,4 +57,12 @@ class Player extends Model
             ->orderBy('from')
             ->get();
     }
+
+    public function stats(){
+        return DB::table('stats')
+            ->join('players', 'players.id', '=', 'stats.player')
+            ->select('stats.ppg as ppg', 'stats.rpg as rpg', 'stats.apg as apg', 'stats.season as season')
+            ->orderBy('stats.season')
+            ->get();
+    }
 }
