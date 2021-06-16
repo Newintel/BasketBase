@@ -39,13 +39,11 @@ class PlayerController extends Controller
     public function store(PlayerRequest $request)
     {
         $data = $request->all();
-        $data['retired'] = array_key_exists('retired', $data);
+        if ($data['retired'] == 0){
+            $data['retired'] = null;
+        };
         Player::create($data);
         $coach = $data['coach'];
-        if ($data['player']){
-            $member = Member::get();
-            return view('modify.editCoach', compact('coach', 'member'));
-        }
         return redirect('/');
     }
 
