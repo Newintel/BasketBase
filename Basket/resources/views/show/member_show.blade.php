@@ -13,6 +13,7 @@
 @section('content')
     @php
         $i = 0;
+        $is_player ??= false;
     @endphp
     <div class="container tab-content" id="nav-tabContent">
         @foreach ($leagues as $league)
@@ -100,7 +101,7 @@
                 @foreach ($leagues as $league)
                     <button class="nav-link {{ $i == 0 ? 'active' : '' }}" id="nav-{{ $league }}-tab" data-bs-toggle="tab" data-bs-target="#nav-{{ $league }}" type="button" role="tab" aria-controls="nav-{{ $league }}" aria-selected={{ $i++ == 0 ? 'true' : 'false' }}>{{ $league }}</button>
                 @endforeach
-                <button onclick="window.parent.open('{{ route('members.edit', $member->id) }}', '_self')" class="btn ms-auto nav-link"> Modify member </button>
+                <button onclick="window.parent.open('@if($is_player) {{ route('players.edit', $member->player->id) }} @else {{ route('coaches.edit', $member->coach->id) }} @endif', '_self')" class="btn ms-auto nav-link only-in-self"> Modify {{ $is_player ? "player" : "coach" }} </button>
             </div>
         </nav>
     </div>

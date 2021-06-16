@@ -23,7 +23,7 @@ class CreateMembersTable extends Migration
             $table->string('image')->default('null.png');
             $table->boolean('hof')->default(false);
             $table->boolean('dead')->default(false);
-            $table->unique(['firstname', 'lastname', 'birthdate']);
+            $table->unique(['firstname', 'lastname']);
         });
         DB::statement('ALTER TABLE members ADD CONSTRAINT dead_active CHECK (not (dead and active))');
     }

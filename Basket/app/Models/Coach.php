@@ -9,6 +9,8 @@ use DB;
 class Coach extends Model
 {
     use HasFactory;
+    public $timestamps = false;
+    protected $fillable = ['member_id', 'retired'];
 
     public function member(){
         return $this->belongsTo(Member::class);

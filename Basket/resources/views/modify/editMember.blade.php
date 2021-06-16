@@ -43,7 +43,7 @@
         </div>
         <br>
         <div class="form-check">
-            <input type="checkbox" name="dead" id="dead" class="form-check-input" onchange="javascript:deactivate()" @if($member && $member->dead) checked @endif>
+            <input type="checkbox" name="dead" id="dead" class="form-check-input" onchange="javascript:deactivate(this, '#active-div', true)" @if($member && $member->dead) checked @endif>
             <span class="form-check-label" for="dead">Dead</span>
         </div>
         <br>
@@ -55,6 +55,17 @@
         <div class="form-check">
             <input type="checkbox" name="hof" id="hof" class="form-check-input" @if($member && $member->hof) checked @endif>
             <span class="form-check-label" for="hof">Hall Of Famer</span>
+        </div>
+        <br>
+        <div class="fw-bold">
+            <div class="form-check">
+                <input type="checkbox" name="coach" id="coach" class="form-check-input">
+                <span class="form-check-label" for="coach">Create coach</span>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" name="player" id="player" class="form-check-input">
+                <span class="form-check-label" for="player">Create player</span>
+            </div>
         </div>
         <br>
         <input class="btn btn-primary" type="submit" value="Submit">

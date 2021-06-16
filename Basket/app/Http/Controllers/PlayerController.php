@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Player;
 use Illuminate\Http\Request;
+use App\Http\Requests\PlayerRequest;
 use DB;
 
 class PlayerController extends Controller
@@ -24,9 +25,9 @@ class PlayerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($coach = false)
     {
-        //
+        return view('modify.editPlayer', compact('coach'));
     }
 
     /**
@@ -35,9 +36,17 @@ class PlayerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PlayerRequest $request)
     {
-        //
+        $data = $request->all();
+        $data['retired'] = array_key_exists('retired', $data);
+        Player::create($data);
+        $coach = $data['coach'];
+        if ($data['player']){
+            $member = Member::get();
+            return view('modify.editCoach', compact('coach', 'member'));
+        }
+        return redirect('/');
     }
 
     /**
@@ -57,7 +66,8 @@ class PlayerController extends Controller
         $leagues = array_map(fn($l)=>DB::table('leagues')->find($l)->shortname, $leagues_id);
 
         $member = $player->member;
-        return view('show.member_show', compact('member', 'teams', 'wins', 'awards', 'leagues', 'leagues_id'));
+        $is_player = true;
+        return view('show.member_show', compact('member', 'teams', 'wins', 'awards', 'leagues', 'leagues_id', 'is_player'));
     }
 
     /**
@@ -68,8 +78,7 @@ class PlayerController extends Controller
      */
     public function edit(Player $player)
     {
-        $member = $player->member;
-        return view('modify.editMember', compact('member'));
+        return view('modify.editPlayer', compact('player'));
     }
 
     /**
@@ -79,9 +88,12 @@ class PlayerController extends Controller
      * @param  \App\Models\Player  $player
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Player $player)
+    public function update(PlayerRequest $request, Player $player)
     {
-        //
+        $data = $request->all();
+        $data['retired'] = array_key_exists('retired', $data);
+        $player->update($data);
+        return back()->with('info', 'Member data was modified');
     }
 
     /**

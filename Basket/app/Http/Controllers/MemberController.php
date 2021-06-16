@@ -35,13 +35,18 @@ class MemberController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MemberRequest $request)
     {
         $data = $request->all();
-        foreach (['active', 'dead', 'hof'] as $props){
+        foreach (['active', 'dead', 'hof', 'player', 'coach'] as $props){
             $data[$props] = array_key_exists($props, $data);
         }
         Member::create($data);
+        $coach = $data['coach'];
+        if ($data['player']){
+            $member = Member::getMemberByName($data['firstname'], $data['lastname']);
+            return view('modify.editPlayer', compact('coach', 'member'));
+        }
         return redirect('/');
     }
 
@@ -76,7 +81,7 @@ class MemberController extends Controller
      * @param  \App\Models\Member  $member
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Member $member)
+    public function update(MemberRequest $request, Member $member)
     {
         $data = $request->all();
         foreach (['active', 'dead', 'hof'] as $props){

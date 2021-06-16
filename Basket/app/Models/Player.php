@@ -9,6 +9,8 @@ use DB;
 class Player extends Model
 {
     use HasFactory;
+    public $timestamps = false;
+    protected $fillable = ['member_id', 'position', 'height', 'weight', 'gender', 'retired'];
 
     public function member(){
         return $this->belongsTo(Member::class);

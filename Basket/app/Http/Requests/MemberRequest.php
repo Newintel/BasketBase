@@ -28,9 +28,9 @@ class MemberRequest extends FormRequest
             'lastname' => ['required', 'string', 'max:100'],
             'birthdate' => ['required', 'date'],
             'origin' => ['nullable', 'string', 'max:100'],
-            'active' => ['nullable', 'boolean'],
-            'hof' => ['nullable', 'boolean'],
-            'dead' => ['nullable', 'boolean']
+            'active' => ['nullable', 'string', 'regex:(on)'],
+            'hof' => ['nullable', 'string', 'regex:(on)'],
+            'dead' => ['nullable', 'string', 'regex:(on)']
         ];
     }
 }
